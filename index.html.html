@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Am/Udayapura Vidyalaya</title>
+  <style>
+    /* General Reset */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: "Segoe UI", sans-serif; line-height:1.6; color:#333; background:#f9f9f9; transition:0.4s; }
+    h1,h2,h3,h4 { font-weight:600; margin-bottom:15px; }
+    section { padding:80px 20px; max-width:1100px; margin:auto; }
+    img { max-width:100%; display:block; border-radius:8px; }
+
+    /* Navbar */
+    header { position:fixed; width:100%; background:#004aad; color:#fff; z-index:1000; }
+    nav { display:flex; justify-content:space-between; align-items:center; padding:15px 30px; }
+    nav a { color:#fff; margin:0 12px; text-decoration:none; font-weight:500; transition:0.3s; }
+    nav a:hover { color:#ffd700; }
+
+    /* Hero */
+    .hero { height:100vh; background:url('https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-1/308609265_458239266324790_1227768222918776271_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=105&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=msYgudfKJYQQ7kNvwHjRl8q&_nc_oc=AdmOu61dZkXXXDzpLAMs6H7AqqO3x4bG_8qwc6Y1J_XAGTFa2wAijBhowPTxztvcUdk6_W2H1pMxIdlbtX5xVyFf&_nc_zt=24&_nc_ht=scontent.fcmb1-2.fna&_nc_gid=GaKDqXNhS41p8m04-mPFOg&oh=00_AfUU0jI2599hVFAcsSqVbgBkpHcwqGXukW1UQl3_eBjkJA&oe=68A5D5C5') center/cover no-repeat; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; text-shadow:0 2px 5px rgba(0,0,0,0.7); }
+    .hero h1 { font-size:3rem; }
+    .hero p { font-size:1.2rem; margin-top:15px; }
+
+    /* Cards */
+    .card { background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); margin:15px; flex:1; transition:0.3s; }
+  .card:hover { transform:scale(1.50); box-shadow:0 8px 25px rgba(0,0,0,0.2); }
+    .card img { transition: transform 0.5s ease; }
+    
+
+
+
+    /* Flex layouts */
+    .flex { display:flex; flex-wrap:wrap; gap:20px; }
+
+    /* News & Events */
+    .news-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+    .news-item img { height:180px; object-fit:cover; }
+
+    /* Gallery slider */
+    .gallery { position:relative; overflow:hidden; }
+    .slides { display:flex; transition:transform 1s ease; }
+    .slides img { min-width:100%; height:450px; object-fit:cover; }
+
+    /* Contact */
+    form input, form textarea { width:100%; padding:10px; margin:8px 0; border:1px solid #ccc; border-radius:6px; }
+    form button { padding:12px 20px; border:none; border-radius:6px; background:#004aad; color:#fff; cursor:pointer; transition:0.3s; }
+    form button:hover { background:#003080; }
+
+    /* Footer */
+    footer { background:#004aad; color:#fff; text-align:center; padding:20px; }
+
+    /* Dark Mode */
+    body.dark { background:#121212; color:#eee; }
+    body.dark .card { background:#1e1e1e; color:#eee; }
+    body.dark header, body.dark footer { background:#000; }
+
+    /* Animation */
+    [data-animate] { opacity:0; transform:translateY(30px); transition:0.8s ease; }
+    [data-animate].visible { opacity:1; transform:translateY(0); }
+
+  /* Mobile Styles */
+  @media (max-width:992px) {
+    .hero h1 { font-size:2.2rem; }
+    nav { flex-direction:column; align-items:flex-start; gap:10px; }
+    .slides img { height:250px; }
+  }
+  @media (max-width:768px) {
+    .hero { height:70vh; padding:20px; }
+    .hero h1 { font-size:1.8rem; }
+    .hero p { font-size:1rem; }
+    .flex, .news-grid { flex-direction:column; grid-template-columns:1fr; }
+    .card img { height:auto; }
+    .slides img { height:200px; }
+  }
+
+
+
+
+    @media (max-width:768px) {
+      nav { flex-direction:column; }
+      .hero h1 { font-size:2rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <h2>Am/Udayapura Vidyalaya</h2>
+      <div>
+        <a href="#about">About Us</a>
+        <a href="#academics">Academics</a>
+        <a href="#news">News & Events</a>
+        <a href="#events">Upcoming Events</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+        <button id="themeToggle">🌙</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Welcome to Am/Udayapura Vidyalaya</h1>
+    <p>"Knowledge is the Light of Life"</p>
+  </section>
+
+  <!-- About Us -->
+  <section id="about" data-animate>
+    <h2>About Us</h2>
+    <div class="flex">
+      <div class="card"><h3>History</h3><p>Our school was founded to provide quality education for generations.</p></div>
+      <div class="card"><h3>Vision & Mission</h3><p>To inspire, educate, and empower students to reach their full potential.</p></div>
+      <div class="card"><h3>Principal’s Message</h3><p>We welcome all learners to our academic family.</p></div>
+    </div>
+  </section>
+
+  <!-- Academics -->
+  <section id="academics" data-animate>
+    <h2>Academics</h2>
+    <div class="card"><h3>Achievements</h3><p>Students have excelled in national exams and competitions.</p></div>
+  </section>
+
+  <!-- News & Events -->
+  <section id="news" data-animate>
+    <h2>News & Events</h2>
+    <div class="news-grid">
+      <div class="card news-item">
+        <img src="https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/528169558_1162618969220146_7322164086286278868_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=8GmXJFm0Q5QQ7kNvwFLA7lK&_nc_oc=AdnPT7sPWt1cn4mpyeyDMOMvcU1uivrxknySrWPoNmcVkEukMTSNMatm0Jd2AmI_28B1_u0bXuCoo8v4JlWOkJZx&_nc_zt=23&_nc_ht=scontent.fcmb1-2.fna&_nc_gid=bEE5Ngafg96fqOuu68zLLw&oh=00_AfV6Y_T9lLUL3_9_etF27NvQdFlV8EZEi4ecRB9DmoQS4g&oe=68A5D987" alt="">
+        <h4>Sports Day</h4><p>Memorable sports events with great achievements.</p>
+      </div>
+      <div class="card news-item">
+        <img src="https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/518385774_1141881784627198_7548869305813209694_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=NJQHaPi8vb4Q7kNvwHNSObg&_nc_oc=AdlcZMaK8f7q9uuKrk_GKyAuNneWrCfhWrsa_TINVJCJZ3Sn1c9xQCfWqTwmfUNK_W7Xf35BPQOn5nOM7Z4J6CzG&_nc_zt=23&_nc_ht=scontent.fcmb1-2.fna&_nc_gid=kEN4pKwwifupiFaQMnMolQ&oh=00_AfVU4Awqjkq3p2Jz4-qzr5O07VdwM1qRI5-v28Ew-HWxOA&oe=68A5D5DA" alt="">
+        <h4>2025 කලාප නර්තන තරගාවලියේදී දෙවන ස්තානය දිනාගත් දූ දරුවන් ඇගයීම</h4><p> </p>
+      </div>
+
+ <div class="card news-item">
+        <img src="" alt="">
+        <h4>2025.06.26 නව විදුහල්පතිතුමන් පිලිගැනීම.</h4><p></p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Upcoming Events -->
+  <section id="events" data-animate>
+    <h2>Upcoming Events</h2>
+    <div class="flex">
+      <div class="card"><h4>Science Exhibition</h4><p>Date: Sept 20, 2025</p><img src="https://picsum.photos/300/200?science"></div>
+      <div class="card"><h4>Teachers’ Day</h4><p>Date: Oct 5, 2025</p><img src="https://picsum.photos/300/200?teachers"></div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="gallery" data-animate>
+    <h2>Gallery</h2>
+    <div class="slides" id="slides">
+      <img src="https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/528169558_1162618969220146_7322164086286278868_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=8GmXJFm0Q5QQ7kNvwFLA7lK&_nc_oc=AdnPT7sPWt1cn4mpyeyDMOMvcU1uivrxknySrWPoNmcVkEukMTSNMatm0Jd2AmI_28B1_u0bXuCoo8v4JlWOkJZx&_nc_zt=23&_nc_ht=scontent.fcmb1-2.fna&_nc_gid=bEE5Ngafg96fqOuu68zLLw&oh=00_AfV6Y_T9lLUL3_9_etF27NvQdFlV8EZEi4ecRB9DmoQS4g&oe=68A5D987">
+      <img src="https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/518385774_1141881784627198_7548869305813209694_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=NJQHaPi8vb4Q7kNvwHNSObg&_nc_oc=AdlcZMaK8f7q9uuKrk_GKyAuNneWrCfhWrsa_TINVJCJZ3Sn1c9xQCfWqTwmfUNK_W7Xf35BPQOn5nOM7Z4J6CzG&_nc_zt=23&_nc_ht=scontent.fcmb1-2.fna&_nc_gid=BPrpyZVSPwmTxBjqmw-ugQ&oh=00_AfWhaMsN3b_BWlKeAZtysZXoZQ2ZVoBF3HuHTOCNDIz1fw&oe=68A5D5DA">
+      <img src="https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/517991532_1141882314627145_6430962206549564687_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=ipx7f9977_YQ7kNvwFFpjuh&_nc_oc=Admbka9Pgyh8tv-_RixKMfTcgxjG6R5Ck92yY0zQGpsFFdcsk5A47YHGrrdwFnYmMzsB2QUO5xR7c9Wu4ktN0qvC&_nc_zt=23&_nc_ht=scontent.fcmb1-2.fna&_nc_gid=amg0dfHI3amglMWQV0vYAg&oh=00_AfWf3eljinDBu-R9YzJeG3L7YgFjYXXtvOHXZ8xst8b4sw&oe=68A5B862">
+<img src="https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/516920194_1141880501293993_2124019308322468619_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=kRmxIQoLVksQ7kNvwGi2n6j&_nc_oc=AdkImcwIt6vbnr387Svk4a4UdbmlPpGZXKyNfurfKxx-nipHrZ7_V8U07sQEvXxm6vLr94TrOxVFKgHzo7IBvQaG&_nc_zt=23&_nc_ht=scontent.fcmb1-2.fna&_nc_gid=BPrpyZVSPwmTxBjqmw-ugQ&oh=00_AfWi96K11OjOn4eOnki8YT7eUCfsXkZCkApzYarUaSCx8w&oe=68A5BEB2">
+<img src="https://picsum.photos/1200/450?school3">
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" data-animate>
+    <h2>Contact Us</h2>
+    <p>Address: Udayapura, Ampara</p>
+    <p>Phone: +94 77 123 4567 | Email: info@udayapura.sch.lk</p>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer><p>&copy; 2025 Am/Udayapura Vidyalaya</p></footer>
+
+  <!-- Scripts -->
+  <script>
+    // Dark Mode
+    document.getElementById("themeToggle").addEventListener("click",()=>{
+      document.body.classList.toggle("dark");
+    });
+
+    // Gallery Slider
+    let index=0;
+    const slides=document.getElementById("slides");
+    const total=slides.children.length;
+    setInterval(()=>{
+      index=(index+1)%total;
+      slides.style.transform=`translateX(-${index*100}%)`;
+    },4000);
+
+    // Scroll Animations
+    const items=document.querySelectorAll("[data-animate]");
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){ entry.target.classList.add("visible"); }
+      });
+    },{threshold:0.2});
+    items.forEach(item=>observer.observe(item));
+  </script>
+</body>
+</html>
